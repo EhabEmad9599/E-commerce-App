@@ -1,0 +1,101 @@
+<article class="sign-up w-50 mx-auto">
+  <div class="container">
+    <h3 class="mt-5 mb-3">Create your account</h3>
+    @if(responseErrorMessage) {
+    <div class="alert alert-danger" role="alert">
+      {{responseErrorMessage}}
+    </div>
+    }
+    <div class="row">
+      <form (ngSubmit)="submitSignUpForm()" [formGroup]="signUpFormObj">
+        <div class="form-floating mb-3">
+          <input formControlName="name" type="text" class="form-control " id="floatingUsername" placeholder="Username">
+          <label class="ps-3" for="floatingUsername">Username <span class="text-danger">*</span></label>
+          @if (signUpFormObj.get('name')?.touched) {
+            <div class="ms-3 mt-2">
+              @if (signUpFormObj.get('name')?.getError('required')) {
+                <p class="text-danger" >Please enter your name</p>
+
+              } @else if (signUpFormObj.get('name')?.getError('minlength')) {
+                <p class="text-danger fs-6" >Name must be at least 3 characters</p>
+
+              } @else if (signUpFormObj.get('name')?.getError('maxlength')) {
+                <p class="text-danger fs-6" >Name must be 20 characters or fewer</p>
+              }
+            </div>
+          }
+        </div>
+        <div class="form-floating mb-3">
+          <input formControlName="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+          <label class="ps-3" for="floatingEmail">Email address <span class="text-danger">*</span></label>
+          @if (signUpFormObj.get('email')?.touched) {
+            <div class="ms-3 mt-2">
+              @if (signUpFormObj.get('email')?.getError('required')) {
+                <p class="text-danger" >Please enter your email address</p>
+
+              } @else if (signUpFormObj.get('email')?.getError('email')) {
+                <p class="text-danger fs-6" >Please enter a valid email address.</p>
+              }
+            </div>
+          }
+        </div>
+        <div class="form-floating mb-3">
+          <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label class="ps-3" for="rePassword">Password <span class="text-danger">*</span></label>
+          @if (signUpFormObj.get('password')?.touched) {
+            <div class="ms-3 mt-2">
+              @if (signUpFormObj.get('password')?.getError('required')) {
+                <p class="text-danger" >Please create a password.</p>
+
+              } @else if (signUpFormObj.get('password')?.getError('minlength')) {
+                <p class="text-danger fs-6" >Password must be at least 6 characters.</p>
+
+              } @else if (signUpFormObj.get('password')?.getError('maxlength')) {
+                <p class="text-danger fs-6" >	Password can be at most 20 characters.</p>
+
+              } @else if (signUpFormObj.get('password')?.getError('pattern')) {
+                <p class="text-danger fs-6" >	Add at least one letter and one number to make your password stronger.</p>
+              }
+            </div>
+          }
+        </div>
+        <div class="form-floating mb-3">
+          <input formControlName="rePassword" type="password" class="form-control" id="rePassword" placeholder="Password Confirmation">
+          <label class="ps-3" for="rePassword">Password Confirmation <span class="text-danger">*</span></label>
+
+          @if (signUpFormObj.get('rePassword')?.touched ) {
+            <div class="ms-3 mt-2">
+              @if (signUpFormObj.getError("passwordMisMatch")) {
+                <p class="text-danger" >Your passwords don’t match. Please try again.</p>
+              }
+            </div>
+          }
+          
+        </div>
+        <div class="form-floating">
+          <input formControlName="phone" type="tel" class="form-control" id="floatingphone" placeholder="Enter your phone number:">
+          <label class="ps-3" for="floatingphone"> Phone number: <span class="text-danger">*</span></label>
+                    @if (signUpFormObj.get('phone')?.touched) {
+            <div class="ms-3 mt-2">
+              @if (signUpFormObj.get('phone')?.getError('required')) {
+                <p class="text-danger" >Please enter your phone number.</p>
+
+              } @else if (signUpFormObj.get('phone')?.getError('pattern')) {
+                <p class="text-danger fs-6" >	Enter a valid phone number (e.g., 010xxxxxxxx).</p>
+              }
+            </div>
+          }
+        </div>
+        <button [disabled]=" signUpFormObj.invalid || isLoading" class="btn bg-main text-light mt-4 btn-signup w-100">
+          @if(isLoading == false) {
+            Sign up
+          } @else {
+
+            <span class="spinner-border spinner-border-sm" role="status"></span>
+          }
+        </button>
+      </form>
+      <p class="text-center mt-4">Already have an account? <a class="login-link" routerLink="/login">Log in</a>.</p>
+    </div>
+  </div>
+</article>

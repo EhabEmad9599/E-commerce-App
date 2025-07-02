@@ -1,0 +1,12 @@
+.btn-login {
+  padding:0.5rem 4rem;
+}
+
+.btn-login:hover {
+  background-color: #0A47C3  !important;
+}
+
+.signup-link {
+  color: #3B82F6;
+  cursor: pointer;
+}

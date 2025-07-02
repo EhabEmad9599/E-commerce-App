@@ -1,0 +1,44 @@
+footer {
+  background-color: #1F2937  ;
+  padding: 40px;
+}
+
+h4 {
+  margin-bottom: 32px;
+}
+footer .text-color{
+  color:#F9FAFB
+}
+
+footer .company-info .social-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+footer .company-info .social-icon i{
+  background-color: #FFF;
+  color: #1F2937;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+
+}
+
+footer ul li {
+  list-style-type: none;
+  margin-bottom: 8px;
+}
+
+footer .categories ul li:hover {
+  color:#3B82F6;
+  cursor: pointer;
+}
+
+footer .contact-us ul li a {
+  color:#F9FAFB;
+  margin-left: 16px;
+}

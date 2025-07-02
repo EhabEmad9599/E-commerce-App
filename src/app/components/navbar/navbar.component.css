@@ -1,0 +1,28 @@
+.signup {
+  border-radius: 4px;
+  display: inline-block;
+  border:1px solid #083AA9  ;
+  padding: 0px 12px;
+  margin-left: 8px;
+}
+.signup:hover {
+  background: #083AA9    ;
+  transition: .2s;
+}
+.signup a {
+  color:#083AA9 ;
+}
+.signup a:hover {
+  color:#FFF ;
+}
+
+.login:hover {
+  border-radius: 4px;
+  display: inline-block;
+  background: #E2ECF7;
+
+}
+
+.login a:hover {
+  color:#083AA9 ;
+}
