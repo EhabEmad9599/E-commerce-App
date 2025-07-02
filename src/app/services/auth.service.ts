@@ -33,12 +33,17 @@ export class AuthService {
     this.router.navigate(["/login"]) // navigate to login page
   }
 
-  resetPassword(form:any): Observable<any> {
+  forgotPassword(form:any): Observable<any> {
     return this.httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords", form )
   }
 
   verifyResetPasswordCode(form:any): Observable<any> {
     return this.httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode", form)
+  }
+
+
+  restPassword(form:any): Observable<any> {
+    return this.httpClient.put("https://ecommerce.routemisr.com/api/v1/auth/resetPassword", form)
   }
 
 

@@ -22,14 +22,14 @@ export class ForgotPasswordComponent {
     handleForgotPassword() {
       if(this.forgotPasswordObj.valid) {
         this.isLoading = true;
-        this.authService.resetPassword(this.forgotPasswordObj.value).subscribe({
+        this.authService.forgotPassword(this.forgotPasswordObj.value).subscribe({
           next:(response) => {
             this.isLoading = false;
             this.router.navigate(['/verifyPassword'])
           },
           error:(error) => {
-              this.isLoading = false;
-              this.responseErrorMessage = error.error.message;
+            this.isLoading = false;
+            this.responseErrorMessage = error.error.message;
           }
         })
       }
