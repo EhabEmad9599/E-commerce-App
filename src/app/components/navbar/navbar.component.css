@@ -29,4 +29,5 @@
 
 .active {
   color:#083AA9 !important;
+  cursor: pointer;
 }

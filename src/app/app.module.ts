@@ -18,6 +18,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { provideHttpClient } from '@angular/common/http';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { VerifyPasswordComponent } from './components/verify-password/verify-password.component';
+import { ProfileSettingComponent } from './components/profile-setting/profile-setting.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { VerifyPasswordComponent } from './components/verify-password/verify-pas
     BrandsComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    VerifyPasswordComponent
+    VerifyPasswordComponent,
+    ProfileSettingComponent
   ],
   imports: [
     BrowserModule,

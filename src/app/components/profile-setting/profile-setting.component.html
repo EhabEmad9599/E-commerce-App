@@ -1,0 +1,143 @@
+<article class="profile-setting w-50 mx-auto mt-5">
+  <div class="row">
+    <!-- Start change profile info -->
+    <section class="edit-personal-info">
+      <form (ngSubmit)="handleUpdateUserInfo()" [formGroup]="updateUserInfoForm">
+        <h4 class="mt-4 mb-4">Edit personal info</h4>
+        <div class="form-floating mb-3">
+          <input formControlName="name" type="text" class="form-control " id="floatingUsername" placeholder="Username">
+          <label class="ps-3" for="floatingUsername">Username <span class="text-danger">*</span></label>
+          @if (updateUserInfoForm.get('name')?.touched) {
+            <div class="ms-3 mt-2">
+              @if (updateUserInfoForm.get('name')?.getError('required')) {
+                <p class="text-danger" >Please enter your name</p>
+
+              } @else if (updateUserInfoForm.get('name')?.getError('minlength')) {
+                <p class="text-danger fs-6" >Name must be at least 3 characters</p>
+
+              } @else if (updateUserInfoForm.get('name')?.getError('maxlength')) {
+                <p class="text-danger fs-6" >Name must be 20 characters or fewer</p>
+              }
+            </div>
+          }
+        </div>
+        <div class="form-floating mb-3">
+          <input formControlName="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+          <label class="ps-3" for="floatingEmail">Email address <span class="text-danger">*</span></label>
+          @if (updateUserInfoForm.get('email')?.touched) {
+            <div class="ms-3 mt-2">
+              @if (updateUserInfoForm.get('email')?.getError('required')) {
+                <p class="text-danger" >Please enter your email address</p>
+
+              } @else if (updateUserInfoForm.get('email')?.getError('email')) {
+                <p class="text-danger fs-6" >Please enter a valid email address.</p>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="form-floating">
+          <input formControlName="phone" type="tel" class="form-control" id="floatingphone" placeholder="Enter your phone number:">
+          <label class="ps-3" for="floatingphone"> Phone number: <span class="text-danger">*</span></label>
+                    @if (updateUserInfoForm.get('phone')?.touched) {
+            <div class="ms-3 mt-2">
+              @if (updateUserInfoForm.get('phone')?.getError('required')) {
+                <p class="text-danger" >Please enter your phone number.</p>
+
+              } @else if (updateUserInfoForm.get('phone')?.getError('pattern')) {
+                <p class="text-danger fs-6" >	Enter a valid phone number (e.g., 010xxxxxxxx).</p>
+              }
+            </div>
+          }
+        </div>
+        <button class="btn float-end mt-4">
+          @if(isLoading == false) {
+            Save Change
+          } @else {
+
+            <span class="spinner-border spinner-border-sm" role="status"></span>
+          }
+        </button>
+      </form>
+      
+    </section>
+    <!-- End change profile info -->
+
+    <!-- Start Change password form -->
+    <section class="change-password">
+      <form (ngSubmit)="handleUpdateUserPassword()" [formGroup]="updateUserPasswordForm">
+      <h4 class="mt-4 mb-4">Change password</h4>
+
+        <div class="form-floating mb-3">
+          <input formControlName="currentPassword" type="password" class="form-control" id="currentPassword" placeholder="Current password">
+          <label class="ps-3" for="currentPassword">Current password <span class="text-danger">*</span></label>
+          @if (updateUserPasswordForm.get('currentPassword')?.touched) {
+            <div class="ms-3 mt-2">
+              @if (updateUserPasswordForm.get('currentPassword')?.getError('required')) {
+                <p class="text-danger" >Please create a password.</p>
+
+              } @else if (updateUserPasswordForm.get('currentPassword')?.getError('minlength')) {
+                <p class="text-danger fs-6" >Password must be at least 6 characters.</p>
+
+              } @else if (updateUserPasswordForm.get('currentPassword')?.getError('maxlength')) {
+                <p class="text-danger fs-6" >	Password can be at most 20 characters.</p>
+
+              } @else if (updateUserPasswordForm.get('currentPassword')?.getError('pattern')) {
+                <p class="text-danger fs-6" >	Add at least one letter and one number to make your password stronger.</p>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="form-floating mb-3">
+          <input formControlName="password" type="password" class="form-control" id="newPassword" placeholder="New password">
+          <label class="ps-3" for="newPassword">New password <span class="text-danger">*</span></label>
+          @if (updateUserPasswordForm.get('password')?.touched) {
+            <div class="ms-3 mt-2">
+              @if (updateUserPasswordForm.get('password')?.getError('required')) {
+                <p class="text-danger" >Please create a password.</p>
+
+              } @else if (updateUserPasswordForm.get('password')?.getError('minlength')) {
+                <p class="text-danger fs-6" >Password must be at least 6 characters.</p>
+
+              } @else if (updateUserPasswordForm.get('password')?.getError('maxlength')) {
+                <p class="text-danger fs-6" >	Password can be at most 20 characters.</p>
+
+              } @else if (updateUserPasswordForm.get('password')?.getError('pattern')) {
+                <p class="text-danger fs-6" >	Add at least one letter and one number to make your password stronger.</p>
+              }
+            </div>
+          }
+        </div>
+        <div class="form-floating mb-3">
+          <input formControlName="rePassword" type="password" class="form-control" id="rePassword" placeholder="Re-type new password">
+          <label class="ps-3" for="rePassword">Re-type new password<span class="text-danger">*</span></label>
+
+          @if (updateUserPasswordForm.get('rePassword')?.touched ) {
+            <div class="ms-3 mt-2">
+              @if (updateUserPasswordForm.getError("passwordMisMatch")) {
+                <p class="text-danger" >Your passwords don’t match. Please try again.</p>
+              }
+            </div>
+          }
+          
+        </div>
+
+        <button class="btn btn-CTA float-end mt-4 ">
+          @if(isLoading == false) {
+            Change password
+          } @else {
+
+            <span class="spinner-border spinner-border-sm" role="status"></span>
+          }
+        </button>
+      </form>
+      <!-- End Change password form -->
+      
+
+    </section>
+    <!-- End Change password form -->
+    
+
+  </div>
+</article>

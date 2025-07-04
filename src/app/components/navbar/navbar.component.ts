@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  isLoggedInUser = false;
+  isLoggedInUser: boolean = false;
+  userName: string | null = null;
 
   constructor(private authService:AuthService){}
 
@@ -16,6 +17,11 @@ export class NavbarComponent implements OnInit {
     this.authService.isLoggedIn.subscribe({
       next: (value) => {
         this.isLoggedInUser = value;
+      }
+    });
+    this.authService.currentUserNameSubject.subscribe({
+      next:(value) => {
+        this.userName = value;
       }
     })
   }

@@ -5,7 +5,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+      @if(isLoggedInUser == true) {
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="home">Home</a>
         </li>
@@ -23,6 +24,7 @@
         </li>
 
       </ul>
+      }
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         @if(isLoggedInUser == false) {
 
@@ -34,10 +36,15 @@
         </li>
 
       } @else {
-          <li class="nav-item signup">
-            <a class="nav-link text-center " (click)="logoutUser()" routerLinkActive="active">Log out</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Welcome {{userName}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="profileSetting">Settings</a></li>
+              <li><a class="dropdown-item" (click)="logoutUser()">Log out</a></li>
+            </ul>
           </li>
-
 
         }
       </ul>

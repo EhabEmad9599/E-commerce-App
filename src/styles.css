@@ -79,3 +79,9 @@ a , a:hover{
 {
     background-color: var(--light-color) !important;
 }
+
+.btn-CTA {
+  max-height: auto;
+  min-height: 48px;
+  font-weight: bold;
+}

@@ -4,6 +4,7 @@ import { RegisterRequest } from '../interfaces/register-request';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LoginRequest } from '../interfaces/login-request';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   isLoggedIn = new BehaviorSubject<boolean>(localStorage.getItem('applicationToken')? true : false);
+  currentUserNameSubject = new BehaviorSubject<string|null>(this.getUserName());
 
   
   constructor(private httpClient:HttpClient, private router: Router) { }
@@ -20,7 +22,6 @@ export class AuthService {
   }
 
   login(loginObj: LoginRequest): Observable<any>{
-    console.log(loginObj);
     
     return this.httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/signin", loginObj )
   }
@@ -30,6 +31,7 @@ export class AuthService {
     // remove token from local storge
     localStorage.removeItem('applicationToken');
     this.isLoggedIn.next(false);
+    this.currentUserNameSubject.next(null);// Notify subject wuth null value
     this.router.navigate(["/login"]) // navigate to login page
   }
 
@@ -46,6 +48,15 @@ export class AuthService {
     return this.httpClient.put("https://ecommerce.routemisr.com/api/v1/auth/resetPassword", form)
   }
 
+  getUserName() {
+    let token = localStorage.getItem("applicationToken");
+    if(token) {
+      let decodedToken:any = jwtDecode(token);
+      return decodedToken.name;
+    } else {
+      return null
+    }
+  }
 
   
 }

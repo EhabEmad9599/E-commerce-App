@@ -1,4 +1,4 @@
-<article class="sign-up w-50 mx-auto">
+<article class="sign-up w-50 mx-auto ">
   <div class="container">
     <h3 class="mt-5 mb-3">Create your account</h3>
     @if(responseErrorMessage) {
@@ -60,8 +60,8 @@
           }
         </div>
         <div class="form-floating mb-3">
-          <input formControlName="rePassword" type="password" class="form-control" id="rePassword" placeholder="Password Confirmation">
-          <label class="ps-3" for="rePassword">Password Confirmation <span class="text-danger">*</span></label>
+          <input formControlName="rePassword" type="password" class="form-control" id="rePassword" placeholder="Re-type new password">
+          <label class="ps-3" for="rePassword">Re-type new password<span class="text-danger">*</span></label>
 
           @if (signUpFormObj.get('rePassword')?.touched ) {
             <div class="ms-3 mt-2">
@@ -86,7 +86,7 @@
             </div>
           }
         </div>
-        <button [disabled]=" signUpFormObj.invalid || isLoading" class="btn bg-main text-light mt-4 btn-signup w-100">
+        <button  [disabled]=" signUpFormObj.invalid || isLoading" class="btn btn-CTA bg-main text-light mt-4 btn-signup w-100">
           @if(isLoading == false) {
             Sign up
           } @else {

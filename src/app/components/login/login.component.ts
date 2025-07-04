@@ -33,6 +33,7 @@ export class LoginComponent {
             this.isLoading = false;
             localStorage.setItem("applicationToken", JSON.stringify(response.token));
             this.authService.isLoggedIn.next(true);
+            this.authService.currentUserNameSubject.next(response.user.name);
             this.router.navigate(['/home'])
           },
           error: (error) => {

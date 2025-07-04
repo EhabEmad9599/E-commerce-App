@@ -13,6 +13,7 @@ import { VerifyPasswordComponent } from './components/verify-password/verify-pas
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { authGuard } from './guards/auth.guard';
 import { noAuthGuard } from './guards/no-auth.guard';
+import { ProfileSettingComponent } from './components/profile-setting/profile-setting.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'cart', canActivate:[authGuard], component: CartComponent, title : 'cart'},
   {path: 'categories', canActivate:[authGuard], component: CategoriesComponent, title : 'categories'},
   {path: 'brands', canActivate:[authGuard], component: BrandsComponent, title : 'brands'},
+  {path: 'profileSetting', canActivate:[authGuard], component: ProfileSettingComponent, title : 'Profile setting'},
   {path: 'login', canActivate:[noAuthGuard], component: LoginComponent, title : 'login'},
   {path: 'signup', canActivate:[noAuthGuard], component: SignUpComponent, title : 'signup'},
   {path: 'forgotPassword', canActivate:[noAuthGuard], component: ForgotPasswordComponent, title : 'forgot Password'},
