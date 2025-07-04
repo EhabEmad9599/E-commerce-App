@@ -11,19 +11,21 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyPasswordComponent } from './components/verify-password/verify-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { authGuard } from './guards/auth.guard';
+import { noAuthGuard } from './guards/no-auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent, title : 'Home'},
-  {path: 'products', component: ProductsComponent, title : 'products'},
-  {path: 'cart', component: CartComponent, title : 'cart'},
-  {path: 'categories', component: CategoriesComponent, title : 'categories'},
-  {path: 'brands', component: BrandsComponent, title : 'brands'},
-  {path: 'login', component: LoginComponent, title : 'login'},
-  {path: 'signup', component: SignUpComponent, title : 'signup'},
-  {path: 'forgotPassword', component: ForgotPasswordComponent, title : 'forgot Password'},
-  {path: 'verifyPassword', component: VerifyPasswordComponent, title : 'Verify Password'},
-  {path: 'restPassword', component: ResetPasswordComponent, title : 'Rest Password'},
+  {path: 'home', canActivate:[authGuard], component: HomeComponent, title : 'Home'},
+  {path: 'products', canActivate:[authGuard], component: ProductsComponent, title : 'products'},
+  {path: 'cart', canActivate:[authGuard], component: CartComponent, title : 'cart'},
+  {path: 'categories', canActivate:[authGuard], component: CategoriesComponent, title : 'categories'},
+  {path: 'brands', canActivate:[authGuard], component: BrandsComponent, title : 'brands'},
+  {path: 'login', canActivate:[noAuthGuard], component: LoginComponent, title : 'login'},
+  {path: 'signup', canActivate:[noAuthGuard], component: SignUpComponent, title : 'signup'},
+  {path: 'forgotPassword', canActivate:[noAuthGuard], component: ForgotPasswordComponent, title : 'forgot Password'},
+  {path: 'verifyPassword', canActivate:[noAuthGuard], component: VerifyPasswordComponent, title : 'Verify Password'},
+  {path: 'restPassword', canActivate:[noAuthGuard], component: ResetPasswordComponent, title : 'Rest Password'},
   {path: '**', component: NotFoundComponent, title : '404'},
 ];
 

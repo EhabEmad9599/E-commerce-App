@@ -31,7 +31,7 @@ export class ResetPasswordComponent {
       this.authService.restPassword(this.resetPasswordForm.value).subscribe({
         next: (response) => {
           this.isLoading = false;
-          this.router.navigate(["/login"])
+          this.router.navigate(["/login"]);
         },
         error: (error) => {
           console.log(error);
