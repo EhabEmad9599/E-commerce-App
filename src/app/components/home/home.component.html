@@ -1,2 +1,57 @@
-<p>home works!</p>
-<i class="fab fa-github"></i>
+<div
+  class="row row-cols-sm-2 row.cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3 mt-5"
+>
+  @for (product of productsList; track product._id) {
+  <div class="col">
+    <div class="card">
+      <!-- <div class="badge"><i class="fa-regular fa-heart"></i></div> -->
+      <div class="tilt">
+        <div class="img">
+          <img
+            [src]="product.imageCover"
+            [alt]="product.title"
+          />
+        </div>
+      </div>
+      <div class="info">
+        <h2 class="title">{{product.title}}</h2>
+        <div class="feats">
+          <span class="feat">{{product.category.name}}</span>
+        </div>
+        <div class="bottom">
+          <div class="price">
+            <span class="new"> EGP {{product.price}}</span>
+          </div>
+        </div>
+        <button class="btn d-block mx-auto w-100">
+          <span>Add to Cart</span>
+          <svg
+            class="icon"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 01-8 0" />
+          </svg>
+        </button>
+        <div class="meta">
+          <div class="rating">
+            <i class="fa-solid fa-star fa-xs rating-color"></i>
+            <i class="fa-solid fa-star fa-xs rating-color"></i>
+            <i class="fa-solid fa-star fa-xs rating-color"></i>
+            <i class="fa-solid fa-star fa-xs rating-color"></i>
+            <i class="fa-solid fa-star fa-xs rating-color"></i>
+            <span class="rcount">{{product.ratingsAverage}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  }
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { ProductService } from '../../services/product.service';
+import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-home',
@@ -25,10 +26,15 @@ export class HomeComponent implements OnInit {
     
     console.log(decodedToken);
 
+    // call products from API
     this.productService.getAllProduct().subscribe({
-      next: (response) => {console.log(response);
+      next:(response: any) => {
+        console.log(response);
+        this.productsList = response.data
       },
-      error: (error) => {console.log(error);
+      error:(error) => {
+        console.log(error);
+        
       }
     })
     
