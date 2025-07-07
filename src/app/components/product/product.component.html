@@ -1,0 +1,17 @@
+<a routerLink="/productDetails">
+  <section class="product">
+    <img class="w-100" [src]="product.imageCover" [alt]="product.title" />
+    <span class="category">{{ product.category.name }}</span>
+    <h5>{{ product.title }}</h5>
+    <div class="rating">
+      <i class="fa-solid fa-star fa-xs rating-color"></i>
+      <i class="fa-solid fa-star fa-xs rating-color"></i>
+      <i class="fa-solid fa-star fa-xs rating-color"></i>
+      <i class="fa-solid fa-star fa-xs rating-color"></i>
+      <i class="fa-solid fa-star fa-xs rating-color"></i>
+      <span class="rcount">({{ product.ratingsAverage }})</span>
+    </div>
+    <h4 class="price">${{ product.price }}</h4>
+    <button>Add To Cart</button>
+  </section>
+</a>

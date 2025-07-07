@@ -1,0 +1,89 @@
+.product {
+  border-radius: 4px;
+  background-color: #FFF;
+  border: 1px solid #D5DFE4;
+  padding: 15px;
+  /* position: relative; */
+  transition-duration: 0.2s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product img {
+  height: 165px;
+  object-fit: fill;
+}
+
+.product .category {
+  font-size: 10px;
+  background: #E2ECF7;
+  color:#083AA9;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 400;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.product h5 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  color:#425A8B ;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product .rating {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  color:#425A8B ;
+}
+
+.rcount {
+  margin-left: 6px;
+  font-size: 11px;
+  color: #71717A;
+}
+
+.product h4 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: bold;
+  color:#083aa9;
+  margin-top:10px;
+}
+.product button {
+  font-size: 14px;
+  margin-top: 8px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #083aa9;
+  background-color: transparent;
+  border: 1px solid #083AA9 !important;
+  border: none;
+  width: 100%;
+  text-align: center;
+  padding: 7px 22px;
+  transition: all 0.3s ease 0s;
+
+}
+
+.product button:hover {
+  background-color: #C4DAF3;
+  color: #083AA9;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #A5C7EE !important;
+  color: #083AA9 !important;
+  transform: scale(0.98);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
