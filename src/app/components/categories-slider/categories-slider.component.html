@@ -1,0 +1,20 @@
+<article class="categories-slider">
+  <div class="row">
+    <h4 class="mt-4 mb-4">Discover Products by Category</h4>
+<owl-carousel-o [options]="customOptions">
+  @for (category of categoriesList; track category._id) {
+    <ng-template carouselSlide>
+      <a href="#" class="category-card-link ">
+        <div class="category-lux me-3">
+          <img [src]="category.image" [alt]="category.name" />
+          <div class="category-info">
+            <h3>{{ category.name }}</h3>
+          </div>
+        </div>
+      </a>
+    </ng-template>
+  }
+</owl-carousel-o>
+
+  </div>
+</article>

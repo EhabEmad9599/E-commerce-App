@@ -62,28 +62,19 @@
 .product button {
   font-size: 14px;
   margin-top: 8px;
-  line-height: 20px;
   font-weight: bold;
   color: #083aa9;
   background-color: transparent;
   border: 1px solid #083AA9 !important;
-  border: none;
-  width: 100%;
-  text-align: center;
   padding: 7px 22px;
   transition: all 0.3s ease 0s;
 
 }
 
 .product button:hover {
-  background-color: #C4DAF3;
-  color: #083AA9;
+  background-color: #083AA9;
+  color: #FFF;
   cursor: pointer;
-}
-
-button:active {
-  background-color: #A5C7EE !important;
-  color: #083AA9 !important;
   transform: scale(0.98);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }

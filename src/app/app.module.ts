@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -21,6 +21,8 @@ import { VerifyPasswordComponent } from './components/verify-password/verify-pas
 import { ProfileSettingComponent } from './components/profile-setting/profile-setting.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CategoriesSliderComponent } from './components/categories-slider/categories-slider.component';
 
 @NgModule({
   declarations: [
@@ -40,12 +42,15 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     VerifyPasswordComponent,
     ProfileSettingComponent,
     ProductComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CategoriesSliderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule,
+    BrowserAnimationsModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

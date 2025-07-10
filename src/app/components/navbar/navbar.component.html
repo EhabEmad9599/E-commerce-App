@@ -10,9 +10,9 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="home">Home</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="cart">Cart</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="products">Products</a>
         </li>
@@ -25,7 +25,7 @@
 
       </ul>
       }
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
         @if(isLoggedInUser == false) {
 
         <li class="nav-item login">
@@ -36,6 +36,25 @@
         </li>
 
       } @else {
+        <li>
+        <a href="#" class="position-relative me-4">
+          <i class="fa-solid fa-heart fa-lg"></i>
+          <span class=" position-absolute top-0 start-100 translate-middle rounded-pill badge text-bg-primary">
+            0
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </a>
+        </li>
+        <li>
+        <a routerLink="cart" class="position-relative me-3">
+          <i class="fa-solid fa-cart-shopping fa-lg"></i>
+          <span class=" position-absolute top-0 start-100 translate-middle rounded-pill badge text-bg-primary">
+            0
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </a>
+        </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Welcome {{userName}}
