@@ -4,15 +4,15 @@ import { SubCategory } from "./sub-category";
 
 
 export interface Product {
-  sold:number,
-  images:string[],
+  sold?:number,
+  images?:string[],
   subCategory: SubCategory[],
-  ratingsQuantity:number,
+  ratingsQuantity?:number,
   _id:string,
   title:string,
-  description:string,
+  description?:string,
   quantity:number,
-  price:number,
+  price?:number,
   imageCover: string,
   category:Category,
   brand: Brand,

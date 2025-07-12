@@ -31,7 +31,7 @@ export class LoginComponent {
           next: (response) => {
             
             this.isLoading = false;
-            localStorage.setItem("applicationToken", JSON.stringify(response.token));
+            localStorage.setItem("applicationToken", response.token);
             this.authService.isLoggedIn.next(true);
             this.authService.currentUserNameSubject.next(response.user.name);
             this.router.navigate(['/home'])

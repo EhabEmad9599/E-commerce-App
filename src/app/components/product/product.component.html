@@ -1,5 +1,5 @@
+<section class="product">
 <a [routerLink]="['/productDetails', product._id]">
-  <section class="product">
     <img class="w-100" [src]="product.imageCover" [alt]="product.title" />
     <span class="category">{{ product.category.name }}</span>
     <h5>{{ product.title }}</h5>
@@ -12,6 +12,6 @@
       <span class="rcount">({{ product.ratingsAverage }})</span>
     </div>
     <h4 class="price">${{ product.price }}</h4>
-    <button class="w-100">Add To Cart</button>
+  </a>
+  <button (click)="addToCart(product._id)" class="w-100">Add To Cart</button>
   </section>
-</a>

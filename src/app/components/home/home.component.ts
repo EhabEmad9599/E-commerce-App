@@ -24,12 +24,10 @@ export class HomeComponent implements OnInit {
       decodedToken = null;
     }
     
-    console.log(decodedToken);
 
     // call products from API
     this.productService.getAllProduct().subscribe({
       next:(response: any) => {
-        console.log(response);
         this.productsList = response.data
       },
       error:(error) => {
