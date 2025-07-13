@@ -1,3 +1,4 @@
+import { Product } from './../interfaces/product';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -21,6 +22,20 @@ export class CartService {
 
   getLoggedUserCart():Observable<any> {
     return this.httpClient.get("https://ecommerce.routemisr.com/api/v1/cart", {headers:this.headers})
+  }
+
+  removeCartItem(id:string):Observable<any> {
+    return this.httpClient.delete(`https://ecommerce.routemisr.com/api/v1/cart/${id}`, {headers: this.headers})
+  }
+
+  updateCartProductQuantity(id:string, count:number):Observable<any> {
+    console.log(id);
+    
+    return this.httpClient.put(`https://ecommerce.routemisr.com/api/v1/cart/${id}`, {count:count}, {headers: this.headers});
+  }
+
+  clearShoppingCart():Observable<any> {
+    return this.httpClient.delete("https://ecommerce.routemisr.com/api/v1/cart", {headers:this.headers})
   }
 
 }

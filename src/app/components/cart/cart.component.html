@@ -27,11 +27,12 @@
               </div>
               <div class="col-md-3">
                 <div class="d-flex align-items-center gap-2">
-                  <button class="quantity-btn" onclick="updateQuantity(1, -1)">
+                  <button (click)="updateProductQuantity(cartItem.product._id, cartItem.count - 1)" class="quantity-btn">
                     -
                   </button>
                   <span>{{cartItem.count}}</span>
-                  <button class="quantity-btn" onclick="updateQuantity(1, 1)">
+                  <button (click)="updateProductQuantity(cartItem.product._id, cartItem.count + 1)" class="quantity-btn">
+                    
                     +
                   </button>
                 </div>
@@ -40,7 +41,9 @@
                 <span class="fw-bold">${{cartItem.price}}</span>
               </div>
               <div class="col-md-1">
-                <i class="fa-regular fa-trash-can remove-btn"></i>
+                <button class="btn" (click)="removeCartItem(cartItem.product._id)">
+                  <i class="fa-regular fa-trash-can remove-btn"></i>
+                </button>
                 <!-- <i class="bi bi-trash remove-btn"></i> -->
               </div>
             </div>

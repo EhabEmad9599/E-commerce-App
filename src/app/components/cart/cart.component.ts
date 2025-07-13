@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { CartResponse } from '../../interfaces/cart-response';
 import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,6 +20,31 @@ export class CartComponent implements OnInit {
         this.cartDetalis = response;
         console.log(response);
       }, 
+      error: (error) => {
+        console.log(error);
+        
+      }
+    })
+  }
+
+  removeCartItem(id:string) {
+    this.cartService.removeCartItem(id).subscribe({
+      next: (response) => {
+        this.cartDetalis =  response;
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    })
+  }
+
+  updateProductQuantity(id:string, count:number) {
+    this.cartService.updateCartProductQuantity(id, count).subscribe({
+      next: (response) => {
+        console.log(response);
+        
+        this.cartDetalis = response;
+      },
       error: (error) => {
         console.log(error);
         
