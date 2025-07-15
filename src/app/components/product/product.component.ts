@@ -33,5 +33,18 @@ export class ProductComponent {
         error: (error) => {console.log(error);}
       })
     }
+
+    deleteProductFromWishlist(id:string) {
+      this.wishlistService.removeWishlistProcut(id).subscribe({
+        next: (response) => {
+          console.log(response);
+          
+        },
+        error: (error) => {
+          console.log(error);
+          
+        }
+      })
+    }
   }
 

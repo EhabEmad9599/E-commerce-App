@@ -17,4 +17,8 @@ export class WishlistService {
     return this.httpClient.post("https://ecommerce.routemisr.com/api/v1/wishlist", {productId:id});
   }
 
+  removeWishlistProcut(id:string):Observable<any> {
+    return this.httpClient.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${id}`)
+  }
+
 }

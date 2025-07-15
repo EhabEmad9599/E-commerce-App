@@ -25,8 +25,4 @@ export class WishlistComponent implements OnInit {
       }
     })
   }
-
-  addToWishlist() {
-
-  }
 }
