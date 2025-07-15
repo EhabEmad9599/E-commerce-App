@@ -15,12 +15,14 @@ import { authGuard } from './guards/auth.guard';
 import { noAuthGuard } from './guards/no-auth.guard';
 import { ProfileSettingComponent } from './components/profile-setting/profile-setting.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', canActivate:[authGuard], component: HomeComponent, title : 'Home'},
   {path: 'products', canActivate:[authGuard], component: ProductsComponent, title : 'products'},
   {path: 'cart', canActivate:[authGuard], component: CartComponent, title : 'cart'},
+  {path: 'wishlist', canActivate:[authGuard], component: WishlistComponent, title : 'wishlist'},
   {path: 'categories', canActivate:[authGuard], component: CategoriesComponent, title : 'categories'},
   {path: 'brands', canActivate:[authGuard], component: BrandsComponent, title : 'brands'},
   {path: 'productDetails/:id', canActivate:[authGuard], component: ProductDetailsComponent, title : 'Product Details'},

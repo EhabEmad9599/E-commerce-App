@@ -51,4 +51,17 @@ export class CartComponent implements OnInit {
       }
     })
   }
+
+  clearCart() {
+    this.cartService.clearShoppingCart().subscribe({
+      next:(response) => {
+        console.log(response);
+        this.cartDetalis = null;
+      },
+      error:(error) => {
+        console.log(error);
+        
+      }
+    })
+  }
 }

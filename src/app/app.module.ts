@@ -15,7 +15,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { BrandsComponent } from './components/brands/brands.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { VerifyPasswordComponent } from './components/verify-password/verify-password.component';
 import { ProfileSettingComponent } from './components/profile-setting/profile-setting.component';
@@ -23,6 +23,8 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoriesSliderComponent } from './components/categories-slider/categories-slider.component';
+import { authInterceptor } from './interceptors/auth.interceptor';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { CategoriesSliderComponent } from './components/categories-slider/catego
     ProfileSettingComponent,
     ProductComponent,
     ProductDetailsComponent,
-    CategoriesSliderComponent
+    CategoriesSliderComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,7 @@ import { CategoriesSliderComponent } from './components/categories-slider/catego
     CarouselModule,
     BrowserAnimationsModule
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(withInterceptors([authInterceptor]))],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,91 +1,173 @@
-<div class="cart-wrapper">
-  <div class="container">
-    <div class="row g-4">
-      <!-- Cart Items Section -->
-      <div class="col-lg-8">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <h4 class="mb-0">Shopping Cart</h4>
-          <span class="text-muted">3 items</span>
-        </div>
+@if (cartDetalis != null) {
 
-        <!-- Product Cards -->
-        <section class="d-flex flex-column gap-3">
-          <!-- Product 1 -->
-          @for (cartItem of cartDetalis?.data?.products; track cartItem._id) {
-          <div class="product-card p-3 shadow-sm">
-            <div class="row align-items-center">
-              <div class="col-md-2">
-                <img
-                  [src]="cartItem.product.imageCover"
-                  [alt]="cartItem.product.title"
-                  class="product-image"
-                />
-              </div>
-              <div class="col-md-4">
-                <h6 class="mb-1">{{cartItem.product.title}}</h6>
-                <!-- <p class="text-muted mb-0">{{cartItem.product.category.name}}</p> -->
-              </div>
-              <div class="col-md-3">
-                <div class="d-flex align-items-center gap-2">
-                  <button (click)="updateProductQuantity(cartItem.product._id, cartItem.count - 1)" class="quantity-btn">
-                    -
-                  </button>
-                  <span>{{cartItem.count}}</span>
-                  <button (click)="updateProductQuantity(cartItem.product._id, cartItem.count + 1)" class="quantity-btn">
-                    
-                    +
-                  </button>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <span class="fw-bold">${{cartItem.price}}</span>
-              </div>
-              <div class="col-md-1">
-                <button class="btn" (click)="removeCartItem(cartItem.product._id)">
-                  <i class="fa-regular fa-trash-can remove-btn"></i>
-                </button>
-                <!-- <i class="bi bi-trash remove-btn"></i> -->
-              </div>
-            </div>
-          </div>
-          }
-
-        </section>
+  @if(cartDetalis.data.products.length > 0) {
+    <div class="cart-wrapper">
+  <div class="row g-4">
+    <!-- Cart Items Section -->
+    <div class="col-lg-8">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="mb-0">Shopping Cart</h4>
+        <span class="text-muted">{{cartDetalis.data.products.length}} items</span>
       </div>
 
-      <!-- Summary Section -->
-      <section class="col-lg-4">
-        <div class="summary-card p-4 shadow-sm">
-          <h5 class="mb-4">Order Summary</h5>
-
-          <div class="d-flex justify-content-between mb-3">
-            <span class="text-muted">Subtotal</span>
-            <span>${{cartDetalis?.data?.totalCartPrice}}</span>
-          </div>
-          <div class="d-flex justify-content-between mb-3">
-            <span class="text-muted">Discount</span>
-            <span class="text-success">-$0</span>
-          </div>
-          <div class="d-flex justify-content-between mb-3">
-            <span class="text-muted">Shipping</span>
-            <span>$0</span>
-          </div>
-          <hr />
-          <div class="d-flex justify-content-between mb-4">
-            <span class="fw-bold">Total</span>
-            <span class="fw-bold">${{cartDetalis?.data?.totalCartPrice}}</span>
-          </div>
-
-          <button class="btn btn-primary bg-main w-100 mb-3">
-            Proceed to Checkout
-          </button>
-
-          <div class="d-flex justify-content-center gap-2">
-            <i class="bi bi-shield-check text-success"></i>
-            <small class="text-muted">Secure checkout</small>
+      <!-- Product Cards -->
+      <section class="d-flex flex-column gap-3">
+        <!-- Product 1 -->
+        @for (cartItem of cartDetalis.data.products; track cartItem._id) {
+        <div class="product-card p-3 shadow-sm">
+          <div class="row align-items-center">
+            <div class="col-md-2">
+              <img
+                [src]="cartItem.product.imageCover"
+                [alt]="cartItem.product.title"
+                class="product-image"
+              />
+            </div>
+            <div class="col-md-4">
+              <h6 class="mb-1">{{ cartItem.product.title }}</h6>
+              <!-- <p class="text-muted mb-0">{{cartItem.product.category.name}}</p> -->
+            </div>
+            <div class="col-md-3">
+              <div class="d-flex align-items-center gap-2">
+                <button
+                  (click)="
+                    updateProductQuantity(
+                      cartItem.product._id,
+                      cartItem.count - 1
+                    )
+                  "
+                  class="quantity-btn"
+                >
+                  -
+                </button>
+                <span>{{ cartItem.count }}</span>
+                <button
+                  (click)="
+                    updateProductQuantity(
+                      cartItem.product._id,
+                      cartItem.count + 1
+                    )
+                  "
+                  class="quantity-btn"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <span class="fw-bold">${{ cartItem.price }}</span>
+            </div>
+            <div class="col-md-1">
+              <button
+                class="btn"
+                (click)="removeCartItem(cartItem.product._id)"
+              >
+                <i class="fa-regular fa-trash-can remove-btn"></i>
+              </button>
+              <!-- <i class="bi bi-trash remove-btn"></i> -->
+            </div>
           </div>
         </div>
+        }
+        <button class="btn bg-main w-25 text-light" (click)="clearCart()">
+          Delete
+        </button>
       </section>
     </div>
+
+    <!-- Summary Section -->
+    <section class="col-lg-4">
+      <div class="summary-card p-4 shadow-sm">
+        <h5 class="mb-4">Order Summary</h5>
+
+        <div class="d-flex justify-content-between mb-3">
+          <span class="text-muted">Subtotal</span>
+          @if(cartDetalis.data.totalCartPrice !== 0) {
+          <span class="fw-bold">${{ cartDetalis.data.totalCartPrice }}</span>
+          } @else {
+          <span class="fw-bold">$0</span>
+          }
+        </div>
+        <div class="d-flex justify-content-between mb-3">
+          <span class="text-muted">Discount</span>
+          <span class="text-success">-$0</span>
+        </div>
+        <div class="d-flex justify-content-between mb-3">
+          <span class="text-muted">Shipping</span>
+          <span>$0</span>
+        </div>
+        <hr />
+        <div class="d-flex justify-content-between mb-4">
+          <span class="fw-bold">Total</span>
+          @if(cartDetalis.data.totalCartPrice !== 0) {
+          <span class="fw-bold">${{ cartDetalis.data.totalCartPrice }}</span>
+          } @else {
+          <span class="fw-bold">$0</span>
+          }
+        </div>
+
+        <button class="btn btn-primary bg-main w-100 mb-3">
+          Proceed to Checkout
+        </button>
+        <!-- <button class="btn btn-primary bg-main w-100 mb-3">
+          go to shopping
+        </button> -->
+
+        <div class="d-flex justify-content-center gap-2">
+          <i class="bi bi-shield-check text-success"></i>
+          <small class="text-muted">Secure checkout</small>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
+  } 
+  <!-- @else {
+<div class="row">
+  <div class="col-md-12 mt-5">
+        <div class="col-sm-12 empty-cart-cls text-center">
+          <i class="fa-solid fa-cart-shopping fa-9x mb-4"></i>
+          <h4><strong>Your cart is currently empty</strong></h4>
+          <p>Add items to see them here.</p>
+          <a
+            routerLink="/home"
+            class="btn bg-main text-light m-3"
+            >Start shopping</a
+          >
+        </div>
+    </div>
+</div>
+  } -->
+
+} 
+@else {
+<div class="row">
+  <div class="col-md-12 mt-5">
+        <div class="col-sm-12 empty-cart-cls text-center">
+          <i class="fa-solid fa-cart-shopping fa-9x mb-4"></i>
+          <h4><strong>Your cart is currently empty</strong></h4>
+          <p>Add items to see them here.</p>
+          <a
+            routerLink="/home"
+            class="btn bg-main text-light m-3"
+            >Start shopping</a
+          >
+        </div>
+    </div>
+</div>
+  }
+<!-- <div class="row">
+  <div class="col-md-12 mt-5">
+        <div class="col-sm-12 empty-cart-cls text-center">
+          <i class="fa-solid fa-cart-shopping fa-9x mb-4"></i>
+          <h4><strong>Your cart is currently empty</strong></h4>
+          <p>Add items to see them here.</p>
+          <a
+            routerLink="/home"
+            class="btn bg-main text-light m-3"
+            >Start shopping</a
+          >
+        </div>
+    </div>
+</div> -->
+
