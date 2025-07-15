@@ -11,7 +11,7 @@ import { Product } from '../../interfaces/product';
 })
 export class ProductComponent {
   @Input({required: true}) product!: Product;
-  // @Input() addedToWishlist: boolean = false;
+  addedToWishlist: boolean = false;
 
   constructor(private cartService:CartService, private wishlistService:WishlistService){}
 
@@ -27,7 +27,7 @@ export class ProductComponent {
       this.wishlistService.addProductToWishlist(id).subscribe({
         next:(response) => {
           console.log(response);
-          // this.addedToWishlist = true;
+          this.addedToWishlist = true;
           
         },
         error: (error) => {console.log(error);}
