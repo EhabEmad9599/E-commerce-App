@@ -20,4 +20,9 @@ export class ProductService {
   getAllCategories():Observable<any> {
     return this.httpClient.get('https://ecommerce.routemisr.com/api/v1/categories')
   }
+
+
+  getAllBrands():Observable<any> {
+    return this.httpClient.get('https://ecommerce.routemisr.com/api/v1/brands')
+  }
 }

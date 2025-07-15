@@ -1,1 +1,20 @@
-<p>brands works!</p>
+<article class="brand-section py-5">
+
+    <!-- Section Header -->
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title">Our Trusted Brands</h2>
+    </div>
+
+    <!-- Brand Grid -->
+    <div class="row gy-4 justify-content-center">
+      @for (brand of brandsList; track $index) {
+        <div class="col-lg-2 col-md-3 col-6">
+          <div class="brand-card text-center">
+            <img [src]="brand.image" [alt]="brand.name" class="brand-logo mb-2" />
+            <!-- <h3 class="brand-name">{{ brand.name }}</h3> -->
+          </div>
+        </div>
+      }
+    </div>
+
+</article>
