@@ -25,6 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoriesSliderComponent } from './components/categories-slider/categories-slider.component';
 import { authInterceptor } from './interceptors/auth.interceptor';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { loadingInterceptor } from './interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -53,9 +55,10 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
     AppRoutingModule,
     ReactiveFormsModule,
     CarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxSpinnerModule
   ],
-  providers: [provideHttpClient(withInterceptors([authInterceptor]))],
+  providers: [provideHttpClient(withInterceptors([authInterceptor, loadingInterceptor]))],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

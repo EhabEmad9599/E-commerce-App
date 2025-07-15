@@ -22,7 +22,6 @@ export class ProductComponent {
     })
     }
 
-    
     addProductToWishlist(id:string) {
       this.wishlistService.addProductToWishlist(id).subscribe({
         next:(response) => {
@@ -46,5 +45,6 @@ export class ProductComponent {
         }
       })
     }
+
   }
 
