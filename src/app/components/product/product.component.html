@@ -1,6 +1,6 @@
 <section class="product">
 
-  <button (click)="addProductToWishlist(product._id)" class="fav">
+  <button (click)="toggleWishlist(product._id)" class="fav">
     <i [class]="addedToWishlist ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'"></i>
   </button>
   

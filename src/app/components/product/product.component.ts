@@ -22,6 +22,13 @@ export class ProductComponent {
     })
     }
 
+    toggleWishlist(id:string) {
+      this.addedToWishlist = !this.addedToWishlist;
+    }
+
+    
+
+    //add Product To Wishlist
     addProductToWishlist(id:string) {
       this.wishlistService.addProductToWishlist(id).subscribe({
         next:(response) => {

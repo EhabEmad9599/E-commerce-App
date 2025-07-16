@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { ProductService } from '../../services/product.service';
-import { Product } from '../../interfaces/product';
+// import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-home',

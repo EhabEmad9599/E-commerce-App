@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { CartResponse } from '../../interfaces/cart-response';
 import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
