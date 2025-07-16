@@ -1,0 +1,26 @@
+<div class="row mt-5">
+  <div class="col-md-12 mb-4">
+    <div class="card mb-4">
+      <div class="card-header py-3">
+        <h5 class="mb-0">Enter your address details</h5>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onlinePayment()" [formGroup]="shippingAddress">
+          <div class="form-floating mb-3">
+            <input formControlName="details" type="text" class="form-control" id="DetailsInput" placeholder="Details">
+            <label for="DetailsInput">Details</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input formControlName="phone" type="number" class="form-control" id="phone" placeholder="phone">
+            <label for="phone">phone</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="city" type="text" class="form-control" id="city" placeholder="city">
+            <label for="city">city</label>
+          </div>
+          <button class="btn bg-main mt-4 text-white">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

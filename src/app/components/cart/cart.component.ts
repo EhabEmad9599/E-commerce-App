@@ -11,13 +11,15 @@ export class CartComponent implements OnInit {
 
   cartDetalis: CartResponse | null = null;
 
+  
   constructor(private cartService:CartService){}
-
+  
   ngOnInit(): void {
     this.cartService.getLoggedUserCart().subscribe({
       next:(response) => {
         this.cartDetalis = response;
         console.log(response);
+        console.log('cardId:', response.cartId);
       }, 
       error: (error) => {
         console.log(error);

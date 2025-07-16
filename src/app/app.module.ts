@@ -27,6 +27,7 @@ import { authInterceptor } from './interceptors/auth.interceptor';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { loadingInterceptor } from './interceptors/loading.interceptor';
+import { ShippingAddressComponent } from './components/shipping-address/shipping-address.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { loadingInterceptor } from './interceptors/loading.interceptor';
     ProductComponent,
     ProductDetailsComponent,
     CategoriesSliderComponent,
-    WishlistComponent
+    WishlistComponent,
+    ShippingAddressComponent
   ],
   imports: [
     BrowserModule,
