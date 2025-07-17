@@ -13,11 +13,13 @@ export class ProductComponent {
   @Input({required: true}) product!: Product;
   addedToWishlist: boolean = false;
 
-  constructor(private cartService:CartService, private wishlistService:WishlistService){}
+  constructor(private cartService:CartService, private wishlistService:WishlistService ){}
 
   addToCart(id:string) {
     this.cartService.addProductToCart(id).subscribe({
-      next:(response) => {console.log(response)},
+      next:(response) => {console.log(response)
+        this.cartService.numberOfCartItem.next(response.numOfCartItems)
+      },
       error: (error) => {console.log(error);}
     })
     }

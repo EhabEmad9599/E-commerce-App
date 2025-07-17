@@ -18,8 +18,6 @@ export class CartComponent implements OnInit {
     this.cartService.getLoggedUserCart().subscribe({
       next:(response) => {
         this.cartDetalis = response;
-        console.log(response);
-        console.log('cardId:', response.cartId);
       }, 
       error: (error) => {
         console.log(error);
@@ -32,6 +30,7 @@ export class CartComponent implements OnInit {
     this.cartService.removeCartItem(id).subscribe({
       next: (response) => {
         this.cartDetalis =  response;
+        this.cartService.numberOfCartItem.next(response.numOfCartItems);
       },
       error: (error) => {
         console.log(error);
@@ -42,9 +41,9 @@ export class CartComponent implements OnInit {
   updateProductQuantity(id:string, count:number) {
     this.cartService.updateCartProductQuantity(id, count).subscribe({
       next: (response) => {
-        console.log(response);
-        
         this.cartDetalis = response;
+        this.cartService.numberOfCartItem.next(response.numOfCartItems);
+        
       },
       error: (error) => {
         console.log(error);
@@ -56,7 +55,7 @@ export class CartComponent implements OnInit {
   clearCart() {
     this.cartService.clearShoppingCart().subscribe({
       next:(response) => {
-        console.log(response);
+        this.cartService.numberOfCartItem.next(0);
         this.cartDetalis = null;
       },
       error:(error) => {

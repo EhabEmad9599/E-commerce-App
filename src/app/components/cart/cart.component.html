@@ -105,12 +105,12 @@
           }
         </div>
 
-        <button [routerLink]="['/shippingAddress', cartDetalis.cartId]" class="btn btn-primary bg-main w-100 mb-3">
-          Proceed to Checkout
+        <button [routerLink]="['/shippingAddress', cartDetalis.cartId, 'card']" class="btn btn-primary bg-main w-100 mb-3">
+          Proceed to online payment
         </button>
-        <!-- <button class="btn btn-primary bg-main w-100 mb-3">
-          go to shopping
-        </button> -->
+        <button [routerLink]="['/shippingAddress', cartDetalis.cartId, 'cash']" class="btn btn-primary bg-main w-100 mb-3">
+          Proceed to cash payment
+        </button>
 
         <div class="d-flex justify-content-center gap-2">
           <i class="bi bi-shield-check text-success"></i>

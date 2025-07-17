@@ -1,12 +1,14 @@
 import { Product } from './../interfaces/product';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+
+  numberOfCartItem = new BehaviorSubject<number>(0)
 
   constructor(private httpClient:HttpClient) { }
 
@@ -33,6 +35,15 @@ export class CartService {
   // Clears all items from the user's cart
   clearShoppingCart():Observable<any> {
     return this.httpClient.delete("https://ecommerce.routemisr.com/api/v1/cart")
+  }
+
+  // Update item number in navbar
+  getUpdatedCartItemsNumber() {
+    this.getLoggedUserCart().subscribe({
+      next: (respnse) => {
+        this.numberOfCartItem.next(respnse.numOfCartItems);
+      }
+    })
   }
 
 }

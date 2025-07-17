@@ -15,4 +15,10 @@ export class OrderService {
       {shippingAddress: form}
     )
   }
+
+  cashOrder(form: any, cardId:string):Observable<any> {
+    return this.httpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/${cardId}`, 
+      {shippingAddress: form}
+    )
+  }
 }

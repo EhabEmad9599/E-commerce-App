@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -13,7 +14,7 @@ export class LoginComponent {
     isLoading:boolean = false;
     responseErrorMessage: string = "";
 
-    constructor(private authService: AuthService, private router: Router ){}
+    constructor(private authService: AuthService, private router: Router, private cartService:CartService ){}
 
     logInFormObj:FormGroup = new FormGroup({
       email: new FormControl("", [Validators.required, Validators.email]),
@@ -32,7 +33,9 @@ export class LoginComponent {
             
             this.isLoading = false;
             localStorage.setItem("applicationToken", response.token);
+            this.cartService.getUpdatedCartItemsNumber(); // Update cart items number
             this.authService.isLoggedIn.next(true);
+
             this.authService.currentUserNameSubject.next(response.user.name);
             this.router.navigate(['/home'])
           },

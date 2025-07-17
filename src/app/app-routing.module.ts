@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'categories', canActivate:[authGuard], component: CategoriesComponent, title : 'categories'},
   {path: 'brands', canActivate:[authGuard], component: BrandsComponent, title : 'brands'},
   {path: 'productDetails/:id', canActivate:[authGuard], component: ProductDetailsComponent, title : 'Product Details'},
-  {path: 'shippingAddress/:id', canActivate:[authGuard], component: ShippingAddressComponent, title : 'shipping Address'},
+  {path: 'shippingAddress/:id/:type', canActivate:[authGuard], component: ShippingAddressComponent, title : 'shipping Address'},
   {path: 'profileSetting', canActivate:[authGuard], component: ProfileSettingComponent, title : 'Profile setting'},
   {path: 'login', canActivate:[noAuthGuard], component: LoginComponent, title : 'login'},
   {path: 'signup', canActivate:[noAuthGuard], component: SignUpComponent, title : 'signup'},

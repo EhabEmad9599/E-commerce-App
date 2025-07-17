@@ -31,3 +31,8 @@
   color:#083AA9 !important;
   cursor: pointer;
 }
+
+.badge {
+  background-color: #C4DAF3;
+  color: #083AA9;
+}

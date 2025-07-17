@@ -28,6 +28,7 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { loadingInterceptor } from './interceptors/loading.interceptor';
 import { ShippingAddressComponent } from './components/shipping-address/shipping-address.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ShippingAddressComponent } from './components/shipping-address/shipping
     ProductDetailsComponent,
     CategoriesSliderComponent,
     WishlistComponent,
-    ShippingAddressComponent
+    ShippingAddressComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
