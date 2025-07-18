@@ -36,6 +36,7 @@ export class ProductComponent {
         next:(response) => {
           console.log(response);
           this.addedToWishlist = true;
+          this.wishlistService.numberOfWishlistItem.next(response.data.length)
           
         },
         error: (error) => {console.log(error);}
@@ -46,6 +47,7 @@ export class ProductComponent {
       this.wishlistService.removeWishlistProcut(id).subscribe({
         next: (response) => {
           console.log(response);
+          this.wishlistService.numberOfWishlistItem.next(response.data.length)
           
         },
         error: (error) => {

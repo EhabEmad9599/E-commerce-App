@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WishlistService {
+
+  numberOfWishlistItem = new BehaviorSubject<number>(0);
 
   constructor(private httpClient:HttpClient) { }
 
@@ -19,6 +21,17 @@ export class WishlistService {
 
   removeWishlistProcut(id:string):Observable<any> {
     return this.httpClient.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${id}`)
+  }
+
+    // Update item number in navbar
+  getUpdatedWishlisttemsNumber() {
+    this.getLoggedUserWishlist().subscribe({
+      next: (respnse) => {
+        console.log(respnse.count);
+        
+        this.numberOfWishlistItem.next(respnse.count);
+      }
+    })
   }
 
 }
