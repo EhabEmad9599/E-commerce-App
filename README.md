@@ -5,7 +5,7 @@ This is a fully-featured e-commerce web application built with **Angular CLI ver
 The project includes user authentication, shopping cart functionality, payment integration, and a responsive design for a smooth user experience across all devices.
 
 
-Demo =>  https://e-commerce-app-mauve-six.vercel.app/login
+Demo: https://e-commerce-app-mauve-six.vercel.app/login
 ---
 
 ## 🔹 Key Features Implemented
