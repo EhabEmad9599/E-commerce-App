@@ -1,3 +1,11 @@
+@if (wishlistProducts.length === 0) {
+<section class="no-favorites d-flex flex-column align-items-center mt-5">
+  <i class="fas fa-heart heart-icon"></i>
+  <h3>You haven’t added any favorite products yet</h3>
+  <p>Start browsing and add your top picks to the wishlist!</p>
+</section>
+
+} @else {
 <h4 class="mb-3 mt-5">Wishlist</h4>
 <div class="row row-cols-sm-2 row.cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
   @for (product of wishlistProducts; track product._id) {
@@ -29,3 +37,5 @@
 
   }
 </div>
+
+}
