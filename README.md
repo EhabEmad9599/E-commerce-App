@@ -1,27 +1,45 @@
-# ECommerce
+# 🛍️ E-Commerce Project (Angular 18)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.19.
+This is a fully-featured e-commerce web application built with **Angular CLI version 18.2.19**.  
+The project includes user authentication, shopping cart functionality, payment integration, and a responsive design for a smooth user experience across all devices.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🔹 Key Features Implemented
 
-## Code scaffolding
+🔐 Secure User Authentication – Easy registration and login
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+🔄 Account Management – Logout, Forgot Password, and Password Update features for smooth account handling.
 
-## Build
+🛒 Smart Shopping Cart – Effortlessly add, remove, and manage products in your cart.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+💚 Wishlist – Save your favorite products for quick access anytime.
 
-## Running unit tests
+💵 Seamless Payment Integration – Fast and secure checkout with integrated payment gateways.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+📱 Fully Responsive Design – Optimized for mobile, tablet, and desktop for the best user experience.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🛠️ **Tech Stack**
 
-## Further help
+- **Frontend:** Angular 18, TypeScript
+- **Styling:** Bootstrap / CSS
+- **Payment:** Integrated with (Stripe)
+- **Build Tool:** Angular CLI
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 🚀 **Installation and Setup**
+
+Follow these steps to run the project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/your-repo-name.git
+
+# Install dependencies
+npm install
+
+# Run the development server
+ng serve
