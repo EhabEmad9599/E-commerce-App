@@ -29,6 +29,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { loadingInterceptor } from './interceptors/loading.interceptor';
 import { ShippingAddressComponent } from './components/shipping-address/shipping-address.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { CategoryProductsComponent } from './components/category-products/category-products.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { OrdersComponent } from './components/orders/orders.component';
     CategoriesSliderComponent,
     WishlistComponent,
     ShippingAddressComponent,
-    OrdersComponent
+    OrdersComponent,
+    CategoryProductsComponent
   ],
   imports: [
     BrowserModule,

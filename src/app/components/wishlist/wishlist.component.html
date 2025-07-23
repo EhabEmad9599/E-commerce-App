@@ -1,8 +1,31 @@
 <h4 class="mb-3 mt-5">Wishlist</h4>
 <div class="row row-cols-sm-2 row.cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
-    @for (product of wishlistProducts; track product._id) {
-    <div class="col">
-      <app-product [product]="product"></app-product>
-    </div>
+  @for (product of wishlistProducts; track product._id) {
+  <div class="col">
+    <section class="product">
+      <button (click)="deleteProductFromWishlist(product._id)" class="fav">
+        <i class="fa-regular fa-trash-can"></i>
+      </button>
+
+      <a [routerLink]="['/productDetails', product._id]">
+        <img class="w-100" [src]="product.imageCover" [alt]="product.title" />
+        <span class="category">{{ product.category.name }}</span>
+        <h5>{{ product.title }}</h5>
+        <div class="rating">
+          <i class="fa-solid fa-star fa-xs rating-color"></i>
+          <i class="fa-solid fa-star fa-xs rating-color"></i>
+          <i class="fa-solid fa-star fa-xs rating-color"></i>
+          <i class="fa-solid fa-star fa-xs rating-color"></i>
+          <i class="fa-solid fa-star fa-xs rating-color"></i>
+          <span class="rcount">({{ product.ratingsAverage }})</span>
+        </div>
+        <h4 class="price">${{ product.price }}</h4>
+      </a>
+      <button (click)="addToCart(product._id)" class="w-100 add-to-cart">
+        Add To Cart
+      </button>
+    </section>
+  </div>
+
   }
 </div>

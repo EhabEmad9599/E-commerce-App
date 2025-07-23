@@ -13,5 +13,4 @@ export class CategoriesService {
     getAllCategories():Observable<any> {
       return this.httpClient.get('https://ecommerce.routemisr.com/api/v1/categories')
     }
-  
-}
+  }

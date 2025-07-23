@@ -17,6 +17,7 @@ import { ProfileSettingComponent } from './components/profile-setting/profile-se
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { ShippingAddressComponent } from './components/shipping-address/shipping-address.component';
+import { CategoryProductsComponent } from './components/category-products/category-products.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'cart', canActivate:[authGuard], component: CartComponent, title : 'cart'},
   {path: 'wishlist', canActivate:[authGuard], component: WishlistComponent, title : 'wishlist'},
   {path: 'categories', canActivate:[authGuard], component: CategoriesComponent, title : 'categories'},
+  {path: 'categoryProductsComponent', canActivate:[authGuard], component: CategoryProductsComponent, title : 'categories-product'},
   {path: 'brands', canActivate:[authGuard], component: BrandsComponent, title : 'brands'},
   {path: 'productDetails/:id', canActivate:[authGuard], component: ProductDetailsComponent, title : 'Product Details'},
   {path: 'shippingAddress/:id/:type', canActivate:[authGuard], component: ShippingAddressComponent, title : 'shipping Address'},

@@ -1,37 +1,57 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Product } from '../interfaces/product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WishlistService {
-
   numberOfWishlistItem = new BehaviorSubject<number>(0);
+  wishlistProductsId = new BehaviorSubject<string[]>([]);
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.getLoggedUserWishlist().subscribe({
+      next: (response) => {
+        console.log(response);
+        // this.wishlistProducts = response.data;
+        const productIds = (response.data as Product[]).map(product => product._id);
+        this.wishlistProductsId.next(productIds);
 
-    getLoggedUserWishlist():Observable<any> {
-    return this.httpClient.get("https://ecommerce.routemisr.com/api/v1/wishlist")
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 
-  addProductToWishlist(id:string):Observable<any> {
-    return this.httpClient.post("https://ecommerce.routemisr.com/api/v1/wishlist", {productId:id});
+  getLoggedUserWishlist(): Observable<any> {
+    return this.httpClient.get(
+      'https://ecommerce.routemisr.com/api/v1/wishlist'
+    );
   }
 
-  removeWishlistProcut(id:string):Observable<any> {
-    return this.httpClient.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${id}`)
+  addProductToWishlist(id: string): Observable<any> {
+    return this.httpClient.post(
+      'https://ecommerce.routemisr.com/api/v1/wishlist',
+      { productId: id }
+    );
   }
 
-    // Update item number in navbar
+  removeWishlistProcut(id: string): Observable<any> {
+    return this.httpClient.delete(
+      `https://ecommerce.routemisr.com/api/v1/wishlist/${id}`
+    );
+  }
+
+  // Update item number in navbar
   getUpdatedWishlisttemsNumber() {
     this.getLoggedUserWishlist().subscribe({
       next: (respnse) => {
         console.log(respnse.count);
-        
-        this.numberOfWishlistItem.next(respnse.count);
-      }
-    })
-  }
 
+        this.numberOfWishlistItem.next(respnse.count);
+      },
+    });
+  }
 }

@@ -1,7 +1,7 @@
 <section class="product">
 
   <button (click)="addProductToWishlist(product._id)" class="fav">
-    <i [class]="addedToWishlist ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'"></i>
+    <i [class]="isWishListProduct(product._id) ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'"></i>
   </button>
   
   <a [routerLink]="['/productDetails', product._id]">
