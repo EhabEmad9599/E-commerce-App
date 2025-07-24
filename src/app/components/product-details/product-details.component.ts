@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -15,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   ProductDetails: Product | null = null;
   
   //Get id valeu
-  constructor(private activatedRoute: ActivatedRoute, private productService:ProductService){}
+  constructor(private activatedRoute: ActivatedRoute, private productService:ProductService, private cartService:CartService){}
 
     customOptions: OwlOptions = {
     loop: true,
@@ -63,6 +64,21 @@ export class ProductDetailsComponent implements OnInit {
     // console.log(this.activatedRoute.snapshot.paramMap.get('id'));
     console.log(this.ProductDetails);
   }
+
+    // Adds the selected product to the shopping cart
+  addToCart(id: string) {
+    this.cartService.addProductToCart(id).subscribe({
+      next: (response) => {
+        console.log(response);
+        // Updates the number of items in the cart after successful addition
+        this.cartService.numberOfCartItem.next(response.numOfCartItems);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+
 
   
 }
