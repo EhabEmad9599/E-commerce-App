@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../interfaces/product';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -27,20 +28,20 @@ export class WishlistService {
 
   getLoggedUserWishlist(): Observable<any> {
     return this.httpClient.get(
-      'https://ecommerce.routemisr.com/api/v1/wishlist'
+      `${environment.baseUrl}api/v1/wishlist`
     );
   }
 
   addProductToWishlist(id: string): Observable<any> {
     return this.httpClient.post(
-      'https://ecommerce.routemisr.com/api/v1/wishlist',
+      `${environment.baseUrl}api/v1/wishlist`,
       { productId: id }
     );
   }
 
   removeWishlistProcut(id: string): Observable<any> {
     return this.httpClient.delete(
-      `https://ecommerce.routemisr.com/api/v1/wishlist/${id}`
+      `${environment.baseUrl}api/v1/wishlist/${id}`
     );
   }
 

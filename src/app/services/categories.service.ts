@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,6 @@ export class CategoriesService {
 
 
     getAllCategories():Observable<any> {
-      return this.httpClient.get('https://ecommerce.routemisr.com/api/v1/categories')
+      return this.httpClient.get(`${environment.baseUrl}api/v1/categories`)
     }
   }

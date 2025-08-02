@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { LoginRequest } from '../interfaces/login-request';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,12 @@ export class AuthService {
   constructor(private httpClient:HttpClient, private router: Router) { }
 
   signUp(registerObj: RegisterRequest): Observable<any>{
-    return this.httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/signup", registerObj )
+    return this.httpClient.post(`${environment.baseUrl}api/v1/auth/signup`, registerObj )
   }
 
   login(loginObj: LoginRequest): Observable<any>{
     
-    return this.httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/signin", loginObj )
+    return this.httpClient.post(`${environment.baseUrl}api/v1/auth/signin`, loginObj )
   }
 
   // Logout function
@@ -36,16 +37,16 @@ export class AuthService {
   }
 
   forgotPassword(form:any): Observable<any> {
-    return this.httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords", form )
+    return this.httpClient.post(`${environment.baseUrl}api/v1/auth/forgotPassword`, form )
   }
 
   verifyResetPasswordCode(form:any): Observable<any> {
-    return this.httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode", form)
+    return this.httpClient.post(`${environment.baseUrl}api/v1/auth/verifyResetCode`, form)
   }
 
 
   restPassword(form:any): Observable<any> {
-    return this.httpClient.put("https://ecommerce.routemisr.com/api/v1/auth/resetPassword", form)
+    return this.httpClient.put(`${environment.baseUrl}api/v1/auth/resetPassword`, form)
   }
 
   getUserName() {
