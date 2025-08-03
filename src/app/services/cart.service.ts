@@ -1,4 +1,3 @@
-import { Product } from './../interfaces/product';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -15,7 +14,7 @@ export class CartService {
 
   // Adds a product to the cart by product ID
   addProductToCart(id:string):Observable<any> {
-    return this.httpClient.post(`${environment.baseUrl}api/v1/cart`, {productId: id}, 
+    return this.httpClient.post(`${environment.baseUrl}api/v1/cart`, {productId: id},
       )
   }
 

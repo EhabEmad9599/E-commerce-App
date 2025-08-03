@@ -15,7 +15,7 @@ export class AuthService {
   isLoggedIn = new BehaviorSubject<boolean>(localStorage.getItem('applicationToken')? true : false);
   currentUserNameSubject = new BehaviorSubject<string|null>(this.getUserName());
 
-  
+
   constructor(private httpClient:HttpClient, private router: Router) { }
 
   signUp(registerObj: RegisterRequest): Observable<any>{
@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   login(loginObj: LoginRequest): Observable<any>{
-    
+
     return this.httpClient.post(`${environment.baseUrl}api/v1/auth/signin`, loginObj )
   }
 
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   forgotPassword(form:any): Observable<any> {
-    return this.httpClient.post(`${environment.baseUrl}api/v1/auth/forgotPassword`, form )
+    return this.httpClient.post(`${environment.baseUrl}api/v1/auth/forgotPasswords`, form )
   }
 
   verifyResetPasswordCode(form:any): Observable<any> {
@@ -59,5 +59,5 @@ export class AuthService {
     }
   }
 
-  
+
 }
