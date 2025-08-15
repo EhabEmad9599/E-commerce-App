@@ -10,3 +10,14 @@
   color: #3B82F6;
   cursor: pointer;
 }
+
+@media (min-width: 576px) { 
+  .log-in {
+    width: 100% !important;
+  }
+}
+@media (max-width: 576px) { 
+  .log-in {
+    width: 100% !important;
+  }
+}

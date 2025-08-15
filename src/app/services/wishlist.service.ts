@@ -14,7 +14,7 @@ export class WishlistService {
   constructor(private httpClient: HttpClient) {
     this.getLoggedUserWishlist().subscribe({
       next: (response) => {
-        console.log(response);
+        // console.log(response);
         // this.wishlistProducts = response.data;
         const productIds = (response.data as Product[]).map(product => product._id);
         this.wishlistProductsId.next(productIds);
@@ -49,7 +49,7 @@ export class WishlistService {
   getUpdatedWishlisttemsNumber() {
     this.getLoggedUserWishlist().subscribe({
       next: (respnse) => {
-        console.log(respnse.count);
+        // console.log(respnse.count);
 
         this.numberOfWishlistItem.next(respnse.count);
       },

@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
   addToCart(id: string) {
     this.cartService.addProductToCart(id).subscribe({
       next: (response) => {
-        console.log(response);
+        // console.log(response);
         // Updates the number of items in the cart after successful addition
         this.cartService.numberOfCartItem.next(response.numOfCartItems);
       },

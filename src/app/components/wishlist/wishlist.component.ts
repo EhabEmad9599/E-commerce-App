@@ -24,7 +24,6 @@ export class WishlistComponent implements OnInit {
   getWishlistData() {
     this.wishlistService.getLoggedUserWishlist().subscribe({
       next: (response) => {
-        console.log(response);
         this.wishlistProducts = response.data;
       },
       error: (error) => {
