@@ -11,13 +11,15 @@
   cursor: pointer;
 }
 
-@media (min-width: 576px) { 
+
+@media (max-width: 576px) { 
   .log-in {
     width: 100% !important;
   }
 }
-@media (max-width: 576px) { 
-  .log-in {
+
+@media (max-width: 991.98px) {
+    .log-in {
     width: 100% !important;
   }
 }

@@ -11,13 +11,14 @@
   cursor: pointer;
 }
 
-@media (min-width: 576px) { 
+@media (max-width: 576px) { 
   .sign-up {
     width: 100% !important;
   }
 }
-@media (max-width: 576px) { 
-  .sign-up {
+
+@media (max-width: 991.98px) {
+    .sign-up {
     width: 100% !important;
   }
 }
