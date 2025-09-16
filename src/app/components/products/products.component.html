@@ -1,5 +1,6 @@
-<div class="row row-cols-sm-2 row.cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3 mt-5">
-  @for (product of productsList; track product._id) {
+<input [(ngModel)]="search"  class="form-control me-2" type="search" placeholder="Search"/>
+<div class="row row-cols-sm-2 row.cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3 mt-3">
+  @for (product of (productsList | searchProduct: search); track product._id) {
   <div class="col">
 
     <app-product [product]="product"></app-product>

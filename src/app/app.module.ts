@@ -13,7 +13,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { BrandsComponent } from './components/brands/brands.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
@@ -30,6 +30,7 @@ import { loadingInterceptor } from './interceptors/loading.interceptor';
 import { ShippingAddressComponent } from './components/shipping-address/shipping-address.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { CategoryProductsComponent } from './components/category-products/category-products.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { CategoryProductsComponent } from './components/category-products/catego
     WishlistComponent,
     ShippingAddressComponent,
     OrdersComponent,
-    CategoryProductsComponent
+    CategoryProductsComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { CategoryProductsComponent } from './components/category-products/catego
     ReactiveFormsModule,
     CarouselModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FormsModule
   ],
   providers: [provideHttpClient(withInterceptors([authInterceptor, loadingInterceptor]))],
   bootstrap: [AppComponent]

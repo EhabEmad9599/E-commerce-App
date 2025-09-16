@@ -8,6 +8,8 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductsComponent implements OnInit {
 
+  search:string = '';
+
   constructor(private productService:ProductService){}
 
   productsList: any[] = [];
