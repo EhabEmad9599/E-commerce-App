@@ -1,0 +1,91 @@
+/* modern styled search input for products list */
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.search-input-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(12, 38, 63, 0.06);
+  border: 1px solid rgba(11,37,70,0.04);
+}
+
+/* left icon */
+.search-icon {
+  position: absolute;
+  left: 14px;
+  color: #9aa6bf;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* input */
+.search-input {
+  padding-left: 42px;
+  padding-right: 42px;
+  border: 0;
+  box-shadow: none;
+  border-radius: 8px;
+  height: 42px;
+  font-size: 14px;
+  color: #24324a;
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: #98a4bb;
+}
+
+/* clear button on right */
+.clear-btn {
+  position: absolute;
+  right: 8px;
+  background: transparent;
+  border: 0;
+  color: #66798f;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background .12s ease, color .12s ease;
+}
+
+.clear-btn:hover {
+  background: rgba(8,58,169,0.06);
+  color: #083AA9;
+}
+
+/* focus state */
+.search-input:focus,
+.search-input:focus + .clear-btn {
+  outline: none;
+}
+
+.search-input:focus {
+  box-shadow: 0 12px 30px rgba(8,58,169,0.06);
+  border-radius: 10px;
+}
+
+/* responsive adjustments */
+@media (max-width: 576px) {
+  .search-input-group {
+    padding: 6px 10px;
+    border-radius: 10px;
+  }
+  .search-input {
+    height: 40px;
+    font-size: 13px;
+  }
+  .search-icon { left: 10px; }
+  .clear-btn { right: 6px; width: 32px; height: 32px; }
+}
