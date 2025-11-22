@@ -2,64 +2,86 @@
   padding: 80px 0;
 }
 
-h2 {
-  font-size: 1.75rem;
-}
-.category-tile {
-  height: 220px;
-  border-radius: 16px;
-  position: relative;
+/* CARD MAIN WRAPPER */
+.category-card {
   cursor: pointer;
+  aspect-ratio: 4/5;
   overflow: hidden;
+  border: 0;
+  border-radius: 16px;
+  height: 100%;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.4s ease;
 }
 
-.category-tile:hover {
+.category-card:hover {
   transform: scale(1.03);
 }
 
-.tile-bg-img {
+/* IMAGE */
+.category-image {
   width: 100%;
   height: 100%;
-  object-fit: fill;
-  filter: brightness(0.7);
-  transition: filter 0.4s ease;
+  object-fit: cover;
+  transition: transform 0.7s ease;
 }
 
-.category-tile:hover .tile-bg-img {
-  filter: brightness(0.5);
+.category-card:hover .category-image {
+  transform: scale(1.1);
 }
 
-/* OVERLAY TEXT */
-.tile-overlay {
+/* GRADIENT OVERLAY */
+.category-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 20px;
+  flex-direction: column;
+  justify-content: end;
+  padding: 20px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    transparent 100%
+  );
 }
 
-.tile-title {
-  font-size: 1.25rem;
+/* TITLE */
+.category-title {
+  color: white;
+  margin-bottom: 8px;
+  font-size: 1.75rem;
   font-weight: 600;
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-  transition: color 0.3s ease;
 }
 
-/* Responsive */
+/* BADGE */
+.category-count {
+  margin-bottom: 12px;
+}
+
+/* SHOP NOW LINK */
+.shop-now {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.shop-now:hover {
+  transform: translateX(8px);
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .category-tile {
-    height: 180px;
+  .category-card {
+    height: 300px;
   }
 
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .tile-title {
-    font-size: 1rem;
+  .category-title {
+    font-size: 1.2rem;
   }
 }

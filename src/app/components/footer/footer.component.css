@@ -1,44 +1,93 @@
-footer {
-  background-color: #1F2937  ;
-  padding: 40px;
+.footer {
+  background: #121212;
+  color: white;
+  padding: 50px 0;
 }
 
-h4 {
-  margin-bottom: 32px;
-}
-footer .text-color{
-  color:#F9FAFB
+.brand-title {
+  font-family: "Cormorant Garamond", serif;
+  margin-bottom: 15px;
+  font-size: 28px;
 }
 
-footer .company-info .social-icon {
+.footer-desc {
+  max-width: 400px;
+  color: #bbbbbb;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  max-width: 400px;
   display: flex;
-  align-items: center;
-  gap: 10px;
-}
-footer .company-info .social-icon i{
-  background-color: #FFF;
-  color: #1F2937;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-
+  gap: 8px;
 }
 
-footer ul li {
-  list-style-type: none;
+.email-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+.subscribe-btn {
+  background: #ffc107;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.subscribe-btn:hover {
+  transform: scale(1.05);
+}
+
+.footer-title {
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-list li {
   margin-bottom: 8px;
 }
 
-footer .categories ul li:hover {
-  color:#3B82F6;
-  cursor: pointer;
+.footer-list a {
+  color: #bbbbbb;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-size: 14px;
 }
 
-footer .contact-us ul li a {
-  color:#F9FAFB;
-  margin-left: 16px;
+.footer-list a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  color: #bbbbbb;
+  transition: 0.2s;
+}
+
+.social-link:hover {
+  color: white;
+  transform: scale(1.1);
 }
