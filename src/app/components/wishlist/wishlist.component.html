@@ -1,4 +1,4 @@
-@if (wishlistProducts.length === 0) {
+  @if (wishlistProducts.length === 0) {
 <section class="no-favorites d-flex flex-column align-items-center mt-5">
   <i class="fas fa-heart heart-icon"></i>
   <h3>You haven’t added any favorite products yet</h3>
@@ -10,32 +10,41 @@
 <div class="row row-cols-sm-2 row.cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
   @for (product of wishlistProducts; track product._id) {
   <div class="col">
-    <section class="product">
-      <button (click)="deleteProductFromWishlist(product._id)" class="fav">
+
+    <section class="product-card">
+      <!-- Favorite Icon -->
+      <button (click)="deleteProductFromWishlist(product._id)" class="favorite-btn">
         <i class="fa-regular fa-trash-can"></i>
       </button>
+  <a [routerLink]="['/productDetails', product._id]">
+  <div class="image-wrapper">
+    <img loading="lazy" class="w-100" [src]="product.imageCover" [alt]="product.title" />
 
-      <a [routerLink]="['/productDetails', product._id]">
-        <img class="w-100" [src]="product.imageCover" [alt]="product.title" />
-        <span class="category">{{ product.category.name }}</span>
-        <h5>{{ product.title }}</h5>
-        <div class="rating">
-          <i class="fa-solid fa-star fa-xs rating-color"></i>
-          <i class="fa-solid fa-star fa-xs rating-color"></i>
-          <i class="fa-solid fa-star fa-xs rating-color"></i>
-          <i class="fa-solid fa-star fa-xs rating-color"></i>
-          <i class="fa-solid fa-star fa-xs rating-color"></i>
-          <span class="rcount">({{ product.ratingsAverage }})</span>
-        </div>
-        <h4 class="price">${{ product.price }}</h4>
-      </a>
-      <button (click)="addToCart(product._id)" class="w-100 add-to-cart">
-        Add To Cart
-      </button>
-    </section>
+
+
+    <!-- Rating Badge -->
+    <div class="rating-badge">
+      ⭐ {{ product.ratingsAverage }}
+    </div>
+  </div>
+</a>
+  <div class="card-body">
+    <h3 class="product-title">{{ product.title }}</h3>
+    <p class="product-sub">{{ product.category.name }}</p>
+
+    <div class="price-wrapper">
+      <span class="price-current">${{ product.price }}</span>
+      <!-- <span class="price-old">$19.00</span>
+      <span class="price-off">38% Off</span> -->
+    </div>
+
+    <button (click)="addToCart(product._id)" class="w-100 add-to-cart">
+      Add To Cart
+    </button>
   </div>
 
+</section>
+  </div>
   }
 </div>
-
 }

@@ -6,7 +6,7 @@
     <ng-template carouselSlide>
       <a href="#" class="category-card-link ">
         <div class="category-lux me-3">
-          <img [src]="category.image" [alt]="category.name" />
+          <img loading="lazy" [src]="category.image" [alt]="category.name" />
           <div class="category-info">
             <h3>{{ category.name }}</h3>
           </div>

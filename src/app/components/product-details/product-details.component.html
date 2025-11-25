@@ -5,7 +5,7 @@
 
         @for (image of ProductDetails?.images; track $index) {
           <ng-template carouselSlide>
-            <img class="img-fluid w-100 light-img" [src]="image">
+            <img loading="lazy" class="img-fluid w-100 light-img" [src]="image">
           </ng-template>
         }
       </owl-carousel-o>
@@ -21,7 +21,6 @@
 
           <div class="d-flex align-items-center gap-2 mt-2 mt-sm-0">
             <div class="d-flex gap-1">
-              <!-- Repeat SVG 5 times -->
               <i class="fa-solid fa-star fa-xs rating-color"></i>
               <i class="fa-solid fa-star fa-xs rating-color"></i>
               <i class="fa-solid fa-star fa-xs rating-color"></i>
@@ -34,7 +33,6 @@
         </div>
 
         <div class="mt-4 d-flex flex-column flex-sm-row gap-2">
-          <!-- <a href="#" class="btn btn-outline-secondary d-flex align-items-center justify-content-center"><i class="fa-solid fa-heart me-2"></i>Add to favorites</a> -->
 
           <button (click)="addToCart(ProductDetails!._id)" class="btn btn-primary d-flex align-items-center justify-content-center"><i
               class="fa-solid me-2 fa-cart-shopping"></i>
@@ -50,3 +48,4 @@
       </div>
     </div>
 </section>
+

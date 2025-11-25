@@ -1,6 +1,6 @@
-<section class="product">
+<!-- <section class="product">
 
-  <button (click)="addProductToWishlist(product._id)" class="fav">
+  <button (click)="addProductToWishlist(product._id)" class="favorite-btn">
     <i [class]="isWishListProduct(product._id) ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'"></i>
   </button>
   
@@ -21,4 +21,38 @@
   <button (click)="addToCart(product._id)" class="w-100 add-to-cart">
     Add To Cart
   </button>
+</section> -->
+
+<section class="product-card">
+      <!-- Favorite Icon -->
+    <button (click)="addProductToWishlist(product._id)" class="favorite-btn">
+      <i [class]="isWishListProduct(product._id) ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'"></i>
+    </button>
+  <a [routerLink]="['/productDetails', product._id]">
+  <div class="image-wrapper">
+    <img loading="lazy" class="w-100" [src]="product.imageCover" [alt]="product.title" />
+
+
+
+    <!-- Rating Badge -->
+    <div class="rating-badge">
+      ⭐ {{ product.ratingsAverage }}
+    </div>
+  </div>
+</a>
+  <div class="card-body">
+    <h3 class="product-title">{{ product.title }}</h3>
+    <p class="product-sub">{{ product.category.name }}</p>
+
+    <div class="price-wrapper">
+      <span class="price-current">${{ product.price }}</span>
+      <!-- <span class="price-old">$19.00</span>
+      <span class="price-off">38% Off</span> -->
+    </div>
+
+    <button (click)="addToCart(product._id)" class="w-100 add-to-cart">
+      Add To Cart
+    </button>
+  </div>
+
 </section>
