@@ -1,58 +1,63 @@
-<!-- <section class="product">
-
-  <button (click)="addProductToWishlist(product._id)" class="favorite-btn">
-    <i [class]="isWishListProduct(product._id) ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'"></i>
-  </button>
-  
-  <a [routerLink]="['/productDetails', product._id]">
-    <img class="w-100" [src]="product.imageCover" [alt]="product.title" />
-    <span class="category">{{ product.category.name }}</span>
-    <h5>{{ product.title }}</h5>
-    <div class="rating">
-      <i class="fa-solid fa-star fa-xs rating-color"></i>
-      <i class="fa-solid fa-star fa-xs rating-color"></i>
-      <i class="fa-solid fa-star fa-xs rating-color"></i>
-      <i class="fa-solid fa-star fa-xs rating-color"></i>
-      <i class="fa-solid fa-star fa-xs rating-color"></i>
-      <span class="rcount">({{ product.ratingsAverage }})</span>
-    </div>
-    <h4 class="price">${{ product.price }}</h4>
-  </a>
-  <button (click)="addToCart(product._id)" class="w-100 add-to-cart">
-    Add To Cart
-  </button>
-</section> -->
-
 <section class="product-card">
-      <!-- Favorite Icon -->
-    <button (click)="addProductToWishlist(product._id)" class="favorite-btn">
-      <i [class]="isWishListProduct(product._id) ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'"></i>
-    </button>
-  <a [routerLink]="['/productDetails', product._id]">
-  <div class="image-wrapper">
-    <img loading="lazy" class="w-100" [src]="product.imageCover" [alt]="product.title" />
+  <!-- Favorite Icon Button -->
+  <button
+    (click)="addProductToWishlist(product._id)"
+    class="favorite-btn"
+    [class.active]="isWishListProduct(product._id)"
+    title="Add to favorites"
+    aria-label="Add to favorites"
+  >
+    <i
+      [class]="
+        isWishListProduct(product._id)
+          ? 'fa-solid fa-heart'
+          : 'fa-regular fa-heart'
+      "
+    ></i>
+  </button>
 
+  <!-- Product Image Link -->
+  <a [routerLink]="['/productDetails', product._id]" class="product-link">
+    <div class="image-wrapper">
+      <img
+        loading="lazy"
+        class="product-image"
+        [src]="product.imageCover"
+        [alt]="product.title"
+      />
 
-
-    <!-- Rating Badge -->
-    <div class="rating-badge">
-      ⭐ {{ product.ratingsAverage }}
+      <!-- Rating Badge -->
+      <div class="rating-badge">
+        <i class="fa-solid fa-star"></i>
+        <span>{{ product.ratingsAverage }}</span>
+      </div>
     </div>
-  </div>
-</a>
-  <div class="card-body">
-    <h3 class="product-title">{{ product.title }}</h3>
-    <p class="product-sub">{{ product.category.name }}</p>
+  </a>
 
+  <!-- Card Body -->
+  <div class="card-body">
+    <!-- Category -->
+    <p class="product-category">{{ product.category.name }}</p>
+
+    <!-- Product Title -->
+    <h3 class="product-title">{{ product.title }}</h3>
+
+    <!-- Price Section -->
     <div class="price-wrapper">
       <span class="price-current">${{ product.price }}</span>
-      <!-- <span class="price-old">$19.00</span>
-      <span class="price-off">38% Off</span> -->
     </div>
 
-    <button (click)="addToCart(product._id)" class="w-100 add-to-cart">
-      Add To Cart
-    </button>
+    <!-- Action Buttons -->
+    <div class="button-group">
+      <button
+        (click)="addToCart(product._id)"
+        class="btn-add-to-cart"
+        title="Add to cart"
+        aria-label="Add to cart"
+      >
+        <i class="fa-solid fa-shopping-cart"></i>
+        <span>Add to Cart</span>
+      </button>
+    </div>
   </div>
-
 </section>
