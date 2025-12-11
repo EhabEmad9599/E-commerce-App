@@ -9,7 +9,7 @@
       @for (brand of brandsList; track $index) {
         <div class="col-lg-2 col-md-3 col-6">
           <div class="brand-card text-center">
-            <img [src]="brand.image" [alt]="brand.name" class="brand-logo mb-2" />
+            <img loading="lazy" [src]="brand.image" [alt]="brand.name" class="brand-logo mb-2" />
             <!-- <h3 class="brand-name">{{ brand.name }}</h3> -->
           </div>
         </div>
