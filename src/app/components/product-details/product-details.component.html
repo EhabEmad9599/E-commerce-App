@@ -20,7 +20,7 @@
 
         @for (image of ProductDetails?.images; track $index) {
           <ng-template carouselSlide>
-            <img loading="lazy" class="img-fluid w-100 light-img" [src]="image">
+            <img fetchpriority="high" class="img-fluid w-100 light-img" [src]="image">
           </ng-template>
         }
       </owl-carousel-o>
